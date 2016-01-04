@@ -39,7 +39,7 @@ server.listen(port, function(){
     console.log("------" + start +"---" + end + "-----");
     crawlerService.crawRangId(start, end);*/
     crawlerService.reCrawlerData();
-  },30*60*1000);
+  },60*60*1000);
 });
 server.on('error', onError);
 server.on('listening', onListening);
