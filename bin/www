@@ -29,17 +29,17 @@ var server = http.createServer(app);
 server.listen(port, function(){
   console.log("success start server");
   crawlerService.reCrawlerData();
-  /*var start = 1;
+  var start = 1;
   var end = 20;
   console.log("------" + start +"---" + end + "-----");
-  crawlerService.crawRangId(start,end);*/
+  crawlerService.crawRangId(start,end);
   setInterval(function(){
-    /*start += 20;
+    start += 20;
     end += 20;
     console.log("------" + start +"---" + end + "-----");
-    crawlerService.crawRangId(start, end);*/
-    crawlerService.reCrawlerData();
-  },60*60*1000);
+    crawlerService.crawRangId(start, end);
+    //crawlerService.reCrawlerData();
+  },1*5*1000);
 });
 server.on('error', onError);
 server.on('listening', onListening);
