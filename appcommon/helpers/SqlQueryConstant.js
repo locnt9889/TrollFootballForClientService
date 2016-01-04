@@ -14,19 +14,12 @@ var GENERIC_SQL = {
     SLQ_REMOVE : "DELETE FROM ?? WHERE ?? = ?"
 }
 
-var CATEGORY_SQL_SCRIPT = {
-    FINDALL_WITH_NUMBER_IMAGE: "SELECT ca.*, (SELECT COUNT(img.id) FROM image2 img WHERE img.category_id = ca.id) AS images FROM category ca"
-}
-
-var IMAGE_SQL_SCRIPT = {
-    COUNT_GET_LIST_IMAGE : "SELECT COUNT(*) AS totalItems FROM image2 WHERE #category #name",
-    GET_LIST_IMAGE : "SELECT * FROM image2 WHERE #category #name ORDER BY #orderBy #orderType LIMIT ?, ?",
-    EXECUTE_INCREASE : "UPDATE image2 SET ?? = ?? + 1 WHERE id = ?"
+var TROLL_FOOTBALL_SQL_SCRIPT = {
+    GET_MAX_ID_LOCAL: "SELECT MAX(content_id) AS MaxLocal FROM troll_football"
 }
 /*Exports*/
 
 module.exports = {
     GENERIC_SQL : GENERIC_SQL,
-    CATEGORY_SQL_SCRIPT : CATEGORY_SQL_SCRIPT,
-    IMAGE_SQL_SCRIPT : IMAGE_SQL_SCRIPT
+    TROLL_FOOTBALL_SQL_SCRIPT : TROLL_FOOTBALL_SQL_SCRIPT
 }

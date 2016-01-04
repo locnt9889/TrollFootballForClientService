@@ -5,14 +5,15 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('NodesMySqlBase:server');
+var debug = require('debug')('Crawler:server');
 var http = require('http');
+var crawlerService = require("../appcommon/services/CrawlerService");
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5555');
+var port = normalizePort(process.env.PORT || '5556');
 app.set('port', port);
 
 /**
@@ -25,7 +26,21 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, function(){
+  console.log("success start server");
+  crawlerService.reCrawlerData();
+  /*var start = 1;
+  var end = 20;
+  console.log("------" + start +"---" + end + "-----");
+  crawlerService.crawRangId(start,end);*/
+  setInterval(function(){
+    /*start += 20;
+    end += 20;
+    console.log("------" + start +"---" + end + "-----");
+    crawlerService.crawRangId(start, end);*/
+    crawlerService.reCrawlerData();
+  },30*60*1000);
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -88,3 +103,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+

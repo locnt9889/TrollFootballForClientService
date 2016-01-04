@@ -50,7 +50,7 @@ var findAll = function() {
     var params = [this.tableName];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,rows){
@@ -76,7 +76,7 @@ var findAllActive = function(activeFieldName) {
     var params = [this.tableName, activeFieldName];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,rows){
@@ -103,7 +103,7 @@ var findOneById = function(idName ,id) {
     var params = [this.tableName, idName, id];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,rows){
@@ -130,7 +130,7 @@ var addNewCustom = function(tableName, obj) {
     var params = [tableName, obj];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,result){
@@ -166,7 +166,7 @@ var update = function(obj, idName, id) {
     var params = [this.tableName, obj, idName, id];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,result){
@@ -193,7 +193,7 @@ var inactivate = function(idName, id) {
     var params = [this.tableName, idName, id];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,result){
@@ -220,7 +220,7 @@ var remove = function(idName, id) {
     var params = [this.tableName, idName, id];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,result){
@@ -247,7 +247,7 @@ var findAllByField = function(fieldName ,fieldValue) {
     var params = [this.tableName, fieldName, fieldValue];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,rows){
@@ -274,7 +274,7 @@ var findAllByFieldWithActive = function(fieldName ,fieldValue) {
     var params = [this.tableName, fieldName, fieldValue];
     pool.getConnection(function(err,connection){
         if (err) {
-            connection.release();
+            //connection.release();
             deferred.reject(err);
         }else{
             connection.query(sql, params, function(err,rows){

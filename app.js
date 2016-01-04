@@ -29,13 +29,9 @@ app.use('/users', users);
  * START set config mapping url
  */
 
-//upload file controller for demo
-var categoryCtrl = require("./appcommon/controllers/CategoryCtrl");
-app.use('/rest/category', categoryCtrl);
-
-//upload file controller for demo
-var imageCtrl = require("./appcommon/controllers/ImageCtrl");
-app.use('/rest/image', imageCtrl);
+//crawler controller
+var crawlerCtrl = require("./appcommon/controllers/CrawlerCtrl");
+app.use('/rest/crawler', crawlerCtrl);
 
 /*
  * END set config mapping url

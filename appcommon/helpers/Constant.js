@@ -3,18 +3,9 @@
  */
 
 var TABLE_NAME_DB = {
-    CATEGORY : {
-        NAME : "category",
+    TROLL_FOOTBALL : {
+        NAME : "troll_football",
         NAME_FIELD_ID : "id"
-    },
-    IMAGE : {
-        NAME : "image2",
-        NAME_FIELD_ID : "id",
-        NAME_FIELD_CATEGORY_ID : "category_id",
-        NAME_FIELD_NAME : "name",
-        NAME_FIELD_COUNT_VIEW : "count_view",
-        NAME_FIELD_COUNT_DOWNLOAD : "count_download",
-        NAME_FIELD_COUNT_FAVORITE : "count_favorite"
     }
 }
 
@@ -41,16 +32,9 @@ var ORDER_CONSTANT = {
     }
 }
 
-var INCREASE_TYPE = {
-    DOWNLOAD : "DOWNLOAD",
-    VIEW : "VIEW",
-    FAVORITE : "FAVORITE"
-}
-
 /*Exports*/
 module.exports = {
     TABLE_NAME_DB : TABLE_NAME_DB,
     CODE_STATUS : CODE_STATUS,
     ORDER_CONSTANT : ORDER_CONSTANT,
-    INCREASE_TYPE : INCREASE_TYPE
 }

@@ -19,9 +19,9 @@ var mysql     =    require('mysql');
 var DB_CONFIG = {
     connectionLimit : 100, //important
     host     : '6recipes.com',
-    user     : 'wallpaper',
-    password : 'wallpaper2015',
-    database : 'wallpaper',
+    user     : 'crawler',
+    password : 'crawler2016',
+    database : 'crawler',
     debug    :  false
 }
 
