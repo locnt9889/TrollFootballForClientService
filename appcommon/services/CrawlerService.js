@@ -215,16 +215,20 @@ var reCrawlerData = function(){
             if(local > localMax){
                 localMax = local;
             }else{
-                localMax = localMax + 30;
+                localMax = (localMax + 30 >= online) ? online : localMax + 30;
                 local = localMax;
             }
-            console.log("local : " + local);
-            if(local + 30 >= online > local){
-                console.log("------" + (local + 1) +"---" + online + "-----");
-                crawRangId(local + 1, online);
-            }else if(online > local + 30){
-                console.log("------" + (local + 1) +"---" + (local + 30) + "-----");
-                crawRangId(local + 1, local + 30);
+            console.log("local-localMax : " + local);
+            if(localMax < 72596){
+                if(local + 30 >= online > local){
+                    console.log("------" + (local + 1) +"---" + online + "-----");
+                    crawRangId(local + 1, online);
+                }else if(online > local + 30){
+                    console.log("------" + (local + 1) +"---" + (local + 30) + "-----");
+                    crawRangId(local + 1, local + 30);
+                }
+            }else{
+                console.log("-----max-----");
             }
 
         }, function (err) {
