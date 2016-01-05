@@ -228,7 +228,7 @@ var reCrawlerData = function(){
                     crawRangId(local + 1, local + 30);
                 }
             }else{
-                console.log("-----max-----");
+                console.log("-----max--- --");
             }
 
         }, function (err) {
