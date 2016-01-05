@@ -13,7 +13,7 @@ var crawlerService = require("../appcommon/services/CrawlerService");
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5557');
+var port = normalizePort(process.env.PORT || '5558');
 app.set('port', port);
 
 /**
@@ -28,23 +28,6 @@ var server = http.createServer(app);
 
 server.listen(port, function(){
   console.log("success start server");
-  crawlerService.reCrawlerData();
-  /*var start = 1;
-  var end = 30;
-  console.log("------" + start +"---" + end + "-----");
-  crawlerService.crawRangId(start,end);*/
-  setInterval(function(){
-    /*start += 30;
-    end += 30;
-    console.log("------" + start +"---" + end + "-----");
-    if(end > 73572){
-      clearInterval(intervalCurrent);
-    }else{
-      crawlerService.crawRangId(start, end);
-    }*/
-    console.log("------Crawler----" + new Date());
-    crawlerService.reCrawlerData();
-  },10*60*1000);
 });
 server.on('error', onError);
 server.on('listening', onListening);

@@ -205,7 +205,7 @@ var localMax = 0;
 var reCrawlerData = function(){
     var online = 0;
     var local = 0;
-    console.log("localMax : " + localMax);
+    //console.log("localMax : " + localMax);
     getMaxIdOnline().then(function (maxOnline) {
         online = maxOnline;
         console.log("online : " + online);

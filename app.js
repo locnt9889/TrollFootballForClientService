@@ -33,6 +33,10 @@ app.use('/users', users);
 var crawlerCtrl = require("./appcommon/controllers/CrawlerCtrl");
 app.use('/rest/crawler', crawlerCtrl);
 
+//rest get data controller
+var trollItemCtrl = require("./appcommon/controllers/TrollItemCtrl");
+app.use('/rest/troll', trollItemCtrl);
+
 /*
  * END set config mapping url
  */
