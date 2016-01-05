@@ -30,14 +30,14 @@ server.listen(port, function(){
   console.log("success start server");
   //crawlerService.reCrawlerData();
   var start = 1;
-  var end = 5;
+  var end = 30;
   console.log("------" + start +"---" + end + "-----");
   crawlerService.crawRangId(start,end);
   var intervalCurrent = setInterval(function(){
-    start += 5;
-    end += 5;
+    start += 30;
+    end += 30;
     console.log("------" + start +"---" + end + "-----");
-    if(end > 15){
+    if(end > 73572){
       clearInterval(intervalCurrent);
     }else{
       crawlerService.crawRangId(start, end);
