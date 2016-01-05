@@ -16,7 +16,9 @@ var find = function(req, res){
     var pageNum = isNaN(req.query.pageNum) || !req.query.pageNum ? 1 : parseInt(req.query.pageNum);
     var perPage = isNaN(req.query.perPage) || !req.query.perPage ? 10 : parseInt(req.query.perPage);
 
-    crawlerDao.findAll(pageNum, perPage).then(function (data) {
+    var type = ("IMAGE" == req.query.type || "VIDEO" == req.query.type) ? req.query.type : "ALL";
+
+    crawlerDao.findAll(pageNum, perPage, type).then(function (data) {
         responseObj.statusErrorCode = Constant.CODE_STATUS.SUCCESS;
         responseObj.results = data;
         res.send(responseObj);

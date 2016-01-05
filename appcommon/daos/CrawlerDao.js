@@ -15,7 +15,7 @@ crawlerDao.getMaxIdLocal= function(){
     return crawlerDao.queryExecute(sql, params);
 };
 
-crawlerDao.findAll= function(pageNum, perPage){
+crawlerDao.findAll= function(pageNum, perPage, type){
     var def = Q.defer();
 
     var start = perPage * (pageNum-1);
@@ -23,6 +23,14 @@ crawlerDao.findAll= function(pageNum, perPage){
     //build sql
     var sqlCount = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.FIND_COUNT;
     var sql = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.FIND;
+
+    if(type != "ALL"){
+        sqlCount = sqlCount.replace("#param", " type = '"+ type +"'");
+        sql = sql.replace("#param", " type = '"+ type +"'");
+    }else{
+        sqlCount = sqlCount.replace("#param", "1");
+        sql = sql.replace("#param", "1");
+    }
 
     var paramCount = [];
 
