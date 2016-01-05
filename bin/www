@@ -42,7 +42,7 @@ server.listen(port, function(){
     }else{
       crawlerService.crawRangId(start, end);
     }*/
-
+    console.log("------Crawler----" + new Date());
     crawlerService.reCrawlerData();
   },10*60*1000);
 });
