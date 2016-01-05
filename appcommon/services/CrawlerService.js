@@ -209,8 +209,12 @@ var reCrawlerData = function(){
         getMaxIdLocal().then(function (dataLocal) {
             local = dataLocal[0].MaxLocal ? dataLocal[0].MaxLocal : 0;
             console.log("local : " + local);
-            if(online > local){
+            if(local + 30 > online > local){
+                console.log("------" + (local + 1) +"---" + online + "-----");
                 crawRangId(local + 1, online);
+            }else if(online >= local + 30){
+                console.log("------" + (local + 1) +"---" + (local + 30) + "-----");
+                crawRangId(local + 1, local + 30);
             }
 
         }, function (err) {

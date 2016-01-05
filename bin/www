@@ -28,23 +28,23 @@ var server = http.createServer(app);
 
 server.listen(port, function(){
   console.log("success start server");
-  //crawlerService.reCrawlerData();
-  var start = 1;
+  crawlerService.reCrawlerData();
+  /*var start = 1;
   var end = 30;
   console.log("------" + start +"---" + end + "-----");
-  crawlerService.crawRangId(start,end);
-  var intervalCurrent = setInterval(function(){
-    start += 30;
+  crawlerService.crawRangId(start,end);*/
+  setInterval(function(){
+    /*start += 30;
     end += 30;
     console.log("------" + start +"---" + end + "-----");
     if(end > 73572){
       clearInterval(intervalCurrent);
     }else{
       crawlerService.crawRangId(start, end);
-    }
+    }*/
 
-    //crawlerService.reCrawlerData();
-  },1*7*1000);
+    crawlerService.reCrawlerData();
+  },1*10*1000);
 });
 server.on('error', onError);
 server.on('listening', onListening);
