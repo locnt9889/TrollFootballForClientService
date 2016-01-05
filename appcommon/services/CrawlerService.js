@@ -200,14 +200,24 @@ var crawRangId = function(start, end){
     }
 };
 
+var localMax = 0;
+
 var reCrawlerData = function(){
     var online = 0;
     var local = 0;
+    console.log("localMax : " + localMax);
     getMaxIdOnline().then(function (maxOnline) {
         online = maxOnline;
         console.log("online : " + online);
         getMaxIdLocal().then(function (dataLocal) {
             local = dataLocal[0].MaxLocal ? dataLocal[0].MaxLocal : 0;
+            //local = local < 1559 ? 1599 : local;
+            if(local > localMax){
+                localMax = local;
+            }else{
+                localMax = localMax + 30;
+                local = localMax;
+            }
             console.log("local : " + local);
             if(local + 30 >= online > local){
                 console.log("------" + (local + 1) +"---" + online + "-----");
