@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('Crawler:server');
 var http = require('http');
-var crawlerService = require("../appcommon/services/CrawlerService");
 
 /**
  * Get port from environment and store in Express.

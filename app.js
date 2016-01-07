@@ -29,10 +29,6 @@ app.use('/users', users);
  * START set config mapping url
  */
 
-//crawler controller
-var crawlerCtrl = require("./appcommon/controllers/CrawlerCtrl");
-app.use('/rest/crawler', crawlerCtrl);
-
 //rest get data controller
 var trollItemCtrl = require("./appcommon/controllers/TrollItemCtrl");
 app.use('/rest/troll', trollItemCtrl);

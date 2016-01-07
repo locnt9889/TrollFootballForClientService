@@ -15,9 +15,8 @@ var GENERIC_SQL = {
 }
 
 var TROLL_FOOTBALL_SQL_SCRIPT = {
-    GET_MAX_ID_LOCAL: "SELECT MAX(content_id) AS MaxLocal FROM troll_football",
-    FIND_COUNT: "SELECT COUNT(*) AS totalItems FROM troll_football WHERE #param",
-    FIND : "SELECT * FROM troll_football WHERE #param ORDER BY content_id DESC LIMIT ?,?"
+    FIND_COUNT: "SELECT COUNT(*) AS totalItems FROM troll_football_1 WHERE #param",
+    FIND : "SELECT * FROM troll_football_1 WHERE #param ORDER BY content_id DESC LIMIT ?,?"
 }
 /*Exports*/
 

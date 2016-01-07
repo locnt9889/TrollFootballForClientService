@@ -4,7 +4,7 @@
 
 var TABLE_NAME_DB = {
     TROLL_FOOTBALL : {
-        NAME : "troll_football",
+        NAME : "troll_football_1",
         NAME_FIELD_ID : "id"
     }
 }
