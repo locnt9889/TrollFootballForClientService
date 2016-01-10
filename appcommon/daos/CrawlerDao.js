@@ -24,9 +24,20 @@ crawlerDao.findAll= function(pageNum, perPage, type){
     var sqlCount = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.FIND_COUNT;
     var sql = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.FIND;
 
-    if(type != "ALL"){
-        sqlCount = sqlCount.replace("#param", " type = '"+ type +"'");
-        sql = sql.replace("#param", " type = '"+ type +"'");
+    //if(type != "ALL"){
+    //    sqlCount = sqlCount.replace("#param", " type = '"+ type +"'");
+    //    sql = sql.replace("#param", " type = '"+ type +"'");
+    //}else{
+    //    sqlCount = sqlCount.replace("#param", "1");
+    //    sql = sql.replace("#param", "1");
+    //}
+
+    if(type == "IMAGE"){
+        sqlCount = sqlCount.replace("#param", " type = 'IMAGE'");
+        sql = sql.replace("#param", " type = 'IMAGE'");
+    }else if(type == "VIDEO"){
+        sqlCount = sqlCount.replace("#param", " (type = 'VIDEO' OR type = 'IFRAME')");
+        sql = sql.replace("#param", " (type = 'VIDEO' OR type = 'IFRAME')");
     }else{
         sqlCount = sqlCount.replace("#param", "1");
         sql = sql.replace("#param", "1");
