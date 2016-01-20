@@ -70,8 +70,24 @@ var executeIncrease = function(req, res){
     });
 };
 
+var getConfigInfo = function(req, res){
+    var responseObj = new ResponseServerDto();
+
+    crawlerDao.getConfigServer().then(function (data) {
+        responseObj.statusErrorCode = Constant.CODE_STATUS.SUCCESS;
+        responseObj.results = data;
+        res.send(responseObj);
+    }, function (err) {
+        responseObj.statusErrorCode = Constant.CODE_STATUS.DB_EXECUTE_ERROR;
+        responseObj.errorsObject = err;
+        responseObj.errorsMessage = message.DB_EXECUTE_ERROR.message;
+        res.send(responseObj);
+    });
+};
+
 /*Exports*/
 module.exports = {
     find : find,
-    executeIncrease : executeIncrease
+    executeIncrease : executeIncrease,
+    getConfigInfo : getConfigInfo
 }

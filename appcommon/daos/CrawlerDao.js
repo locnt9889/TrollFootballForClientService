@@ -73,5 +73,11 @@ crawlerDao.executeIncrease= function(name_field, id){
     return crawlerDao.queryExecute(sql, params);
 };
 
+crawlerDao.getConfigServer= function(){
+    var sql = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.GET_CONFIG_SERVER;
+    var params = [];
+    return crawlerDao.queryExecute(sql, params);
+};
+
 /*Export*/
 module.exports = crawlerDao;

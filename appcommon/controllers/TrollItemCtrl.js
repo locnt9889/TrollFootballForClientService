@@ -17,4 +17,9 @@ router.get('/execute', [function(req, res, next) {
     trollItemService.executeIncrease(req, res);
 }]);
 
+/* GET exexute */
+router.get('/config-info', [function(req, res, next) {
+    trollItemService.getConfigInfo(req, res);
+}]);
+
 module.exports = router;
