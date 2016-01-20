@@ -30,7 +30,48 @@ var find = function(req, res){
     });
 };
 
+var executeIncrease = function(req, res){
+    var responseObj = new ResponseServerDto();
+
+    var id = isNaN(req.query.id) || !req.query.id ? 0 : parseInt(req.query.id);
+    var type = req.query.type ? req.query.type : "";
+
+    var name_field = "";
+
+    if(id == 0){
+        responseObj.statusErrorCode = Constant.CODE_STATUS.IMAGE.IMAGE_INVALID;
+        responseObj.errorsObject = message.IMAGE.IMAGE_INVALID;
+        responseObj.errorsMessage = message.IMAGE.IMAGE_INVALID.message;
+        res.send(responseObj);
+        return;
+    }
+
+    if(type == Constant.INCREASE_TYPE.LIKE){
+        name_field = Constant.TABLE_NAME_DB.TROLL_FOOTBALL.NAME_FIELD_COUNT_LIKE;
+    }else if(type == Constant.INCREASE_TYPE.SHARE){
+        name_field = Constant.TABLE_NAME_DB.TROLL_FOOTBALL.NAME_FIELD_COUNT_SHARE;
+    }else{
+        responseObj.statusErrorCode = Constant.CODE_STATUS.IMAGE.EXECUTE_TYPE_INVALID;
+        responseObj.errorsObject = message.IMAGE.EXECUTE_TYPE_INVALID;
+        responseObj.errorsMessage = message.IMAGE.EXECUTE_TYPE_INVALID.message;
+        res.send(responseObj);
+        return;
+    }
+
+    crawlerDao.executeIncrease(name_field, id).then(function (data) {
+        responseObj.statusErrorCode = Constant.CODE_STATUS.SUCCESS;
+        responseObj.results = data;
+        res.send(responseObj);
+    }, function (err) {
+        responseObj.statusErrorCode = Constant.CODE_STATUS.DB_EXECUTE_ERROR;
+        responseObj.errorsObject = err;
+        responseObj.errorsMessage = message.DB_EXECUTE_ERROR.message;
+        res.send(responseObj);
+    });
+};
+
 /*Exports*/
 module.exports = {
-    find : find
+    find : find,
+    executeIncrease : executeIncrease
 }

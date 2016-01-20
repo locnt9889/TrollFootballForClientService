@@ -16,7 +16,8 @@ var GENERIC_SQL = {
 
 var TROLL_FOOTBALL_SQL_SCRIPT = {
     FIND_COUNT: "SELECT COUNT(*) AS totalItems FROM troll_football_1 WHERE #param",
-    FIND : "SELECT * FROM troll_football_1 WHERE #param ORDER BY content_id DESC LIMIT ?,?"
+    FIND : "SELECT * FROM troll_football_1 WHERE #param ORDER BY content_id DESC LIMIT ?,?",
+    EXECUTE_INCREASE : "UPDATE troll_football_1 SET ?? = ?? + 1 WHERE id = ?"
 }
 /*Exports*/
 

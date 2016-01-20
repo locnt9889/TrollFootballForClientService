@@ -5,7 +5,9 @@
 var TABLE_NAME_DB = {
     TROLL_FOOTBALL : {
         NAME : "troll_football_1",
-        NAME_FIELD_ID : "id"
+        NAME_FIELD_ID : "id",
+        NAME_FIELD_COUNT_LIKE : "count_like",
+        NAME_FIELD_COUNT_SHARE : "count_share"
     }
 }
 
@@ -32,9 +34,15 @@ var ORDER_CONSTANT = {
     }
 }
 
+var INCREASE_TYPE = {
+    LIKE : "LIKE",
+    SHARE : "SHARE"
+}
+
 /*Exports*/
 module.exports = {
     TABLE_NAME_DB : TABLE_NAME_DB,
     CODE_STATUS : CODE_STATUS,
     ORDER_CONSTANT : ORDER_CONSTANT,
+    INCREASE_TYPE : INCREASE_TYPE
 }

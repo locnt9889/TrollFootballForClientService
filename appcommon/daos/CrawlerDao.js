@@ -9,12 +9,6 @@ var Constant = require("../helpers/Constant");
 var crawlerDao = new MysqlHelper(Constant.TABLE_NAME_DB.TROLL_FOOTBALL.NAME);
 var ResponsePagingDto = require("../modelsDto/ResponsePagingDto");
 
-crawlerDao.getMaxIdLocal= function(){
-    var sql = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.GET_MAX_ID_LOCAL   ;
-    var params = [];
-    return crawlerDao.queryExecute(sql, params);
-};
-
 crawlerDao.findAll= function(pageNum, perPage, type){
     var def = Q.defer();
 
@@ -71,6 +65,12 @@ crawlerDao.findAll= function(pageNum, perPage, type){
     });
 
     return def.promise;
+};
+
+crawlerDao.executeIncrease= function(name_field, id){
+    var sql = SqlQueryConstant.TROLL_FOOTBALL_SQL_SCRIPT.EXECUTE_INCREASE;
+    var params = [name_field, name_field, id];
+    return crawlerDao.queryExecute(sql, params);
 };
 
 /*Export*/

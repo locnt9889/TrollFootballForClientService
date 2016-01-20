@@ -7,9 +7,14 @@ var router = express.Router();
 
 var trollItemService = require("../services/TrollItemService");
 
-/* POST find all category */
+/* GET find all category */
 router.get('/find', [function(req, res, next) {
     trollItemService.find(req, res);
+}]);
+
+/* GET exexute */
+router.get('/execute', [function(req, res, next) {
+    trollItemService.executeIncrease(req, res);
 }]);
 
 module.exports = router;
